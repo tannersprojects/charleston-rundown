@@ -40,9 +40,7 @@
 
 			<div class="hidden items-center space-x-6 md:flex">
 				{#each navLinks as link}
-					<a href={link.href} class="transition-colors hover:text-primary">
-						<Button variant="ghost" class="text-sm font-medium">{link.label}</Button>
-					</a>
+					<Button href={link.href} variant="ghost" class="text-sm font-medium">{link.label}</Button>
 				{/each}
 			</div>
 
@@ -55,17 +53,20 @@
 						</Button>
 					</SheetTrigger>
 					<SheetContent class="w-[300px] sm:w-[400px]">
-						<SheetHeader class="space-y-3">
-							<a href="/" class="text-xl font-bold text-primary">Your Name | RE</a>
-						</SheetHeader>
+						<!-- <SheetHeader class="space-y-3">
+							<a href="/" class="text-primary text-xl font-bold">{name} | RE</a>
+						</SheetHeader> -->
 						<div class="mt-6 flex flex-col space-y-3">
 							{#each navLinks as link}
-								<a href={link.href} onclick={() => (open = false)} class="block">
-									<Button variant="ghost" class="h-12 w-full justify-start space-x-3 text-left">
-										<link.icon class="h-5 w-5" />
-										<span class="font-medium">{link.label}</span>
-									</Button>
-								</a>
+								<Button
+									href={link.href}
+									variant="ghost"
+									class="h-12 w-full justify-start space-x-3 text-left"
+									onclick={() => (open = false)}
+								>
+									<link.icon class="h-5 w-5" />
+									<span class="font-medium">{link.label}</span>
+								</Button>
 							{/each}
 						</div>
 					</SheetContent>
